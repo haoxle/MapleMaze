@@ -16,3 +16,14 @@
 3. canvas.width = window.innderWidth (probaby do this on css)
 4. canvas.height= innerheight
 5. set margin to 0 */
+
+const canvas = document.getElementById("myCanvas");
+const char = canvas.getContext("2d");
+const charHeight = 10;
+const charWidth = 10;
+let charY = (canvas.height - charHeight) / 2;
+let charX = (canvas.width - charWidth) / 2;
+let rightPress = false;
+let leftPress = false;
+let upPress = false;
+let downPress = false;

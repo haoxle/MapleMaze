@@ -34,3 +34,30 @@ const drawAChar = () => {
   char.fill();
   char.closePath();
 };
+
+const keyClick = (e) => {
+  if (e.key == "Right" || e.key == "ArrowRight") {
+    rightPress = true;
+  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+    leftPress = true;
+  } else if (e.key == "Down" || e.key == "ArrowDown") {
+    downPress = true;
+  } else if (e.key == "Up" || e.key == "ArrowUp") {
+    upPress = true;
+  }
+};
+
+const KeyRelease = (e) => {
+  if (e.key == "Right" || e.key == "ArrowRight") {
+    rightPress = false;
+  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+    leftPress = false;
+  } else if (e.key == "Down" || e.key == "ArrowDown") {
+    downPress = false;
+  } else if (e.key == "Up" || e.key == "ArrowUp") {
+    upPress = false;
+  }
+};
+
+document.addEventListener("keydown", keyClick, false);
+document.addEventListener("keyup", KeyRelease, false);

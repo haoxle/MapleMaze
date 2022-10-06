@@ -1,12 +1,11 @@
 /*Game project
 
-// Project Setup
+// Project Setup //
 // Generate Map
 // Add Maplestory Character with movement
 // Add collision detection
 // Swap boundaries with images
 // Create enemy
-// Create power-ip
 // Add win condution
 // Mobile and computer conversion
 
@@ -27,3 +26,11 @@ let rightPress = false;
 let leftPress = false;
 let upPress = false;
 let downPress = false;
+
+const drawAChar = () => {
+  char.beginPath();
+  char.rect(charX, charY, charWidth, charHeight);
+  char.fillStyle = "#0095DD";
+  char.fill();
+  char.closePath();
+};

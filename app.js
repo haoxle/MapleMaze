@@ -6,15 +6,10 @@
 // Add collision detection
 // Swap boundaries with images
 // Create enemy
-// Add win condution
+// Add win condition
 // Mobile and computer conversion
 
-
-1. Create a canvas/div, query selector and console log to see what you have done.
-2. Creating a canvas context const c = canvas.getContext('2d') //read more about this
-3. canvas.width = window.innderWidth (probaby do this on css)
-4. canvas.height= innerheight
-5. set margin to 0 */
+*/
 
 const canvas = document.getElementById("myCanvas");
 const char = canvas.getContext("2d");
@@ -26,6 +21,49 @@ let rightPress = false;
 let leftPress = false;
 let upPress = false;
 let downPress = false;
+let roadWidth = canvas.width / mazeArray[0].length;
+let roadHeight = canvas.height / mazeArray.length;
+
+const mazeArrayOne = [
+  [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
+  [1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0],
+  [1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+  [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0],
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+  [1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1],
+  [1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1],
+  [1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1],
+  [1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
+];
+
+const mazeArrayTwo = [
+  [1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0],
+  [1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0],
+  [1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0],
+  [1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0],
+  [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+  [1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+  [1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0],
+  [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0],
+  [1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1],
+  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+];
+const mazeArrayThree = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
 
 const drawAChar = () => {
   char.beginPath();
@@ -61,3 +99,31 @@ const KeyRelease = (e) => {
 
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
+
+const move = () => {
+  char.clearRect(0, 0, canvas.width, canvas.height);
+  drawAChar();
+  if (rightPress) {
+    charX += 0.5;
+    if (charX + charWidth > canvas.width) {
+      charX = canvas.width - charWidth; //so it does not go out of page
+    }
+  } else if (leftPress) {
+    charX -= 0.5;
+    if (charX < 0) {
+      charX = 0;
+    }
+  } else if (upPress) {
+    charY -= 0.5;
+    if (charY < 0) {
+      charY = 0;
+    }
+  } else if (downPress) {
+    charY += 0.5;
+    if (charY + charHeight > canvas.height) {
+      charY = canvas.height - charWidth; //so it does not go out of page
+    }
+  }
+};
+
+setInterval(move);

@@ -172,14 +172,22 @@ const drawMap = (context, mazeArrayOne) => {
   var img = new Image();
   img.src = "./Images/grass.jpg";
   context.beginPath();
-  context.drawImage(img, 20, 20, 20, 20);
-  context.drawImage(img, 1, 1, 20, 20);
-  context.drawImage(img, 4, 4, 20, 20);
-  context.drawImage(img, 8, 8, 20, 20);
+  context.drawImage(img, 0, 0, 20, 20);
+  context.drawImage(img, 20, 0, 20, 20);
+  context.drawImage(img, 40, 0, 20, 20);
+  context.drawImage(img, 60, 0, 20, 20);
+  context.drawImage(img, 60, 20, 20, 20);
+  context.drawImage(img, 60, 40, 20, 20);
+  context.drawImage(img, 60, 60, 20, 20);
+  context.drawImage(img, 20, 40, 20, 20);
+  context.drawImage(img, 0, 40, 20, 20);
+  context.drawImage(img, 20, 60, 20, 20);
   context.closePath();
 };
 //   }
 // };
+
+//collision detection for img
 
 /*
 const drawMap = (context, mazeArrayOne) => {

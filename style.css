@@ -1,11 +1,11 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
   body .game__instructions {
     margin: 0 6% 0 6%;
-    padding: 5px;
+    padding: 7px;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     color: azure;
-    font-size: 1vh;
+    font-size: 1.5vh;
   }
   body img {
     margin-top: -9%;
@@ -40,6 +40,7 @@
     width: 10vh;
   }
   .controls {
+    margin-top: 2%;
     display: grid;
   }
   .controls .buttons {

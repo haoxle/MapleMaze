@@ -2,6 +2,10 @@
 // Create enemy
 // Mobile and computer conversion
 */
+const bu = document.getElementById("bu");
+const bd = document.getElementById("bd");
+const bl = document.getElementById("bl");
+const br = document.getElementById("br");
 const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const canvas = document.getElementById("myCanvas");
@@ -171,3 +175,33 @@ const reload = (e) => {
 
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
+
+const goUp = (e) => {
+  upPress = true;
+  downPress = false;
+  leftPress = false;
+  rightPress = false;
+};
+
+const goDown = (e) => {
+  downPress = true;
+  upPress = false;
+  leftPress = false;
+  rightPress = false;
+};
+const goLeft = (e) => {
+  leftPress = true;
+  downPress = false;
+  upPress = false;
+  rightPress = false;
+};
+const goRight = (e) => {
+  rightPress = true;
+  downPress = false;
+  leftPress = false;
+  upPress = false;
+};
+bu.addEventListener("click", goUp);
+bd.addEventListener("click", goDown);
+bl.addEventListener("click", goLeft);
+br.addEventListener("click", goRight);

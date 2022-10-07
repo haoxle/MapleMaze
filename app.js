@@ -25,7 +25,7 @@ let imgSpear = new Image();
 imgSpear.src = "./Images/spear.png";
 // let charY = (canvas.height - charHeight) / 2;
 // let charX = (canvas.width - charWidth) / 2;
-let charY = 25;
+let charY = 105;
 let charX = 0;
 let rightPress = false;
 let leftPress = false;
@@ -179,13 +179,13 @@ const drawAChar = () => {
   context.closePath();
 };
 //draw a rectangle for collision detection
-const drawARect = () => {
-  context.beginPath();
-  context.rect(canvas.width / 2 - 50, canvas.height / 2 - 50, 50, 50);
-  context.fillStyle = "green";
-  context.fill();
-  context.closePath();
-};
+// const drawARect = () => {
+//   context.beginPath();
+//   context.rect(canvas.width / 2 - 50, canvas.height / 2 - 50, 50, 50);
+//   context.fillStyle = "green";
+//   context.fill();
+//   context.closePath();
+// };
 //draws Map 1
 const drawMap = () => {
   context.beginPath();
@@ -257,7 +257,6 @@ const move = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawMap();
   drawAChar();
-  drawARect();
   if (rightPress) {
     charX += go;
     if (charX + charWidth > canvas.width) {
@@ -280,13 +279,32 @@ const move = () => {
     }
   }
   if (
-    charX + charWidth >= canvas.width / 2 - 50 &&
-    charX <= canvas.width / 2 &&
-    charY + charHeight >= canvas.height / 2 - 50 &&
-    charY <= canvas.height / 2
+    (charX + charWidth >= 0 &&
+      charX <= 210 &&
+      charY + charHeight >= 0 &&
+      charY <= 70) +
+    (charX + charWidth >= 140 &&
+      charX <= 350 &&
+      charY + charHeight >= 70 &&
+      charY <= 140) +
+    (charX + charWidth >= 0 &&
+      charX <= 70 &&
+      charY + charHeight >= 140 &&
+      charY <= 210) +
+    (charX + charWidth >= 0 &&
+      charX <= 480 &&
+      charY + charHeight >= 210 &&
+      charY <= 280) +
+    (charX + charWidth >= 420 &&
+      charX <= 480 &&
+      charY + charHeight >= 280 &&
+      charY <= 350) +
+    (charX + charWidth >= 420 &&
+      charX <= 560 &&
+      charY + charHeight >= 0 &&
+      charY <= 140)
   ) {
     return (go = go * -1.1);
-    console.log("colliding");
   } else {
     return (go = 0.5);
   }

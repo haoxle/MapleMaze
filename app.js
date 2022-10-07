@@ -178,30 +178,47 @@ restart.addEventListener("click", reload);
 
 const goUp = (e) => {
   upPress = true;
-  downPress = false;
-  leftPress = false;
-  rightPress = false;
+  // downPress = false;
+  // leftPress = false;
+  // rightPress = false;
+  console.log("up");
 };
 
 const goDown = (e) => {
   downPress = true;
-  upPress = false;
-  leftPress = false;
-  rightPress = false;
+  // upPress = false;
+  // leftPress = false;
+  // rightPress = false;
+  console.log("down");
 };
 const goLeft = (e) => {
   leftPress = true;
-  downPress = false;
-  upPress = false;
-  rightPress = false;
+  // downPress = false;
+  // upPress = false;
+  // rightPress = false;
+  console.log("left");
 };
 const goRight = (e) => {
   rightPress = true;
+  // downPress = false;
+  // leftPress = false;
+  // upPress = false;
+  console.log("right");
+};
+
+const stop = (e) => {
+  rightPress = false;
   downPress = false;
   leftPress = false;
   upPress = false;
+  console.log("Stop");
 };
-bu.addEventListener("click", goUp);
-bd.addEventListener("click", goDown);
-bl.addEventListener("click", goLeft);
-br.addEventListener("click", goRight);
+bu.addEventListener("mousedown", goUp);
+bd.addEventListener("mousedown", goDown);
+bl.addEventListener("mousedown", goLeft);
+br.addEventListener("mousedown", goRight);
+
+bu.addEventListener("mouseup", stop);
+bd.addEventListener("mouseup", stop);
+bl.addEventListener("mouseup", stop);
+br.addEventListener("mouseup", stop);

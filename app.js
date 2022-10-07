@@ -1,3 +1,5 @@
+//WRITE ON THE README
+
 const bu = document.getElementById("bu");
 const bd = document.getElementById("bd");
 const bl = document.getElementById("bl");

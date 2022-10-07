@@ -24,6 +24,7 @@ imgSpear.src = "./Images/spear.png";
 let charY = 80;
 let charX = 0;
 let go = 0.5;
+// let chosenMap = mapOne;
 
 const keyClick = (e) => {
   if (e.key == "Right" || e.key == "ArrowRight") {
@@ -76,7 +77,7 @@ const moving = () => {
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
 
-const map1 = (mapOne) => {
+const map1 = () => {
   moving();
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
@@ -104,7 +105,14 @@ const map1 = (mapOne) => {
   context.drawImage(img1, 420, 0, 140, 140);
   context.drawImage(imgSpear, 500, 300, 50, 50);
   context.closePath();
-
+  if (
+    charX + charWidth >= 480 &&
+    charX <= 560 &&
+    charY + charHeight >= 300 &&
+    charY <= 350
+  ) {
+    map2();
+  }
   if (
     (charX + charWidth >= 0 &&
       charX <= 210 &&

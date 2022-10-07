@@ -17,7 +17,8 @@ const charHeight = 10;
 const charWidth = 10;
 const imgWidth = 20;
 const imgHeight = 20;
-
+let img1w = 80;
+let img1h = 70;
 let img1 = new Image();
 img1.src = "./Images/mushy.png";
 let imgSpear = new Image();
@@ -169,6 +170,7 @@ const mazeArrayOne = [
 let roadWidth = 400 / mazeArrayOne[0].length;
 let roadHeight = 200 / mazeArrayOne[0].length;
 
+//draws the character
 const drawAChar = () => {
   context.beginPath();
   context.rect(charX, charY, charWidth, charHeight);
@@ -176,6 +178,7 @@ const drawAChar = () => {
   context.fill();
   context.closePath();
 };
+//draw a rectangle for collision detection
 const drawARect = () => {
   context.beginPath();
   context.rect(canvas.width / 2 - 50, canvas.height / 2 - 50, 50, 50);
@@ -183,36 +186,27 @@ const drawARect = () => {
   context.fill();
   context.closePath();
 };
+//draws Map 1
 const drawMap = () => {
   context.beginPath();
-  // context.imageSmoothingEnabled = false;
-  context.drawImage(img1, 0, 0, 80, 70);
-  context.drawImage(img1, 0, 140, 80, 70);
-  context.drawImage(img1, 0, 210, 80, 70);
-
-  context.drawImage(img1, 70, 0, 80, 70);
-  context.drawImage(img1, 70, 210, 80, 70);
-  context.drawImage(img1, 70, 210, 80, 70);
-
-  context.drawImage(img1, 140, 0, 80, 70);
-  context.drawImage(img1, 140, 70, 80, 70);
-  context.drawImage(img1, 140, 210, 80, 70);
-
-  context.drawImage(img1, 210, 70, 80, 70);
-  context.drawImage(img1, 210, 210, 80, 70);
-
-  context.drawImage(img1, 280, 70, 80, 70);
-  context.drawImage(img1, 280, 210, 80, 70);
-
-  context.drawImage(img1, 350, 210, 80, 70);
-
-  context.drawImage(img1, 420, 210, 80, 70);
-  context.drawImage(img1, 420, 280, 80, 70);
-
+  context.drawImage(img1, 0, 0, img1w, img1h);
+  context.drawImage(img1, 0, 140, img1w, img1h);
+  context.drawImage(img1, 0, 210, img1w, img1h);
+  context.drawImage(img1, 70, 0, img1w, img1h);
+  context.drawImage(img1, 70, 210, img1w, img1h);
+  context.drawImage(img1, 70, 210, img1w, img1h);
+  context.drawImage(img1, 140, 0, img1w, img1h);
+  context.drawImage(img1, 140, 70, img1w, img1h);
+  context.drawImage(img1, 140, 210, img1w, img1h);
+  context.drawImage(img1, 210, 70, img1w, img1h);
+  context.drawImage(img1, 210, 210, img1w, img1h);
+  context.drawImage(img1, 280, 70, img1w, img1h);
+  context.drawImage(img1, 280, 210, img1w, img1h);
+  context.drawImage(img1, 350, 210, img1w, img1h);
+  context.drawImage(img1, 420, 210, img1w, img1h);
+  context.drawImage(img1, 420, 280, img1w, img1h);
   context.drawImage(img1, 420, 0, 140, 140);
-
   context.drawImage(imgSpear, 500, 300, 50, 50);
-
   context.closePath();
 };
 

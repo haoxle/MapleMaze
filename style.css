@@ -1,11 +1,11 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
   body .game__instructions {
     margin: 0 6% 0 6%;
-    padding: 2vh;
+    padding: 5px;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     color: azure;
-    font-size: 1.5vh;
+    font-size: 1vh;
   }
   body img {
     margin-top: -9%;

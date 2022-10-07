@@ -1,12 +1,12 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
   body {
     .game__instructions {
-      margin: 4% 6% 0 6%;
+      margin: 0 6% 0 6%;
       padding: 2vh;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
       color: azure;
-      font-size: 2vh;
+      font-size: 1.5vh;
     }
     img {
       margin-top: -9%;
@@ -43,23 +43,22 @@
   }
 
   .controls {
-    margin-top: 3%;
     height: 100%;
     display: grid;
 
     .buttons {
-      width: 210px;
+      width: 180px;
       height: 140px;
       align-self: center;
       justify-self: center;
       display: grid;
-      grid-template-rows: 70px 70px;
-      grid-template-columns: 70px 70px 70px;
+      grid-template-rows: 60px 60px;
+      grid-template-columns: 60px 60px 60px;
     }
 
     .btn {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border: 2px #fff solid;
       border-bottom: 2px #fff solid;
       align-self: center;

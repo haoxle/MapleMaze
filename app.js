@@ -24,11 +24,11 @@ img2.src = "./Images/slime.png";
 let img3 = new Image();
 img3.src = "./Images/snail.png";
 let img4 = new Image();
-img4.src = "./Images/ugly.png";
+img4.src = "./Images/mushy.png";
 let img5 = new Image();
-img5.src = "./Images/MapleMush2";
-let img6 = new Image();
-img6.src = "./Images/grass.jpg";
+img5.src = "./Images/MapleMush2.png";
+let imgSpear = new Image();
+imgSpear.src = "./Images/spear.png";
 // let charY = (canvas.height - charHeight) / 2;
 // let charX = (canvas.width - charWidth) / 2;
 let charY = 25;
@@ -192,7 +192,34 @@ const drawARect = () => {
 };
 const drawMap = () => {
   context.beginPath();
-  context.drawImage(img2, 0, 0, 50, 50);
+  // context.imageSmoothingEnabled = false;
+  context.drawImage(img4, 0, 0, 80, 70);
+  context.drawImage(img4, 0, 140, 80, 70);
+  context.drawImage(img4, 0, 210, 80, 70);
+
+  context.drawImage(img4, 70, 0, 80, 70);
+  context.drawImage(img4, 70, 210, 80, 70);
+  context.drawImage(img4, 70, 210, 80, 70);
+
+  context.drawImage(img4, 140, 0, 80, 70);
+  context.drawImage(img4, 140, 70, 80, 70);
+  context.drawImage(img4, 140, 210, 80, 70);
+
+  context.drawImage(img4, 210, 70, 80, 70);
+  context.drawImage(img4, 210, 210, 80, 70);
+
+  context.drawImage(img4, 280, 70, 80, 70);
+  context.drawImage(img4, 280, 210, 80, 70);
+
+  context.drawImage(img4, 350, 210, 80, 70);
+
+  context.drawImage(img4, 420, 210, 80, 70);
+  context.drawImage(img4, 420, 280, 80, 70);
+
+  context.drawImage(img4, 420, 0, 140, 140);
+
+  context.drawImage(imgSpear, 500, 300, 50, 50);
+
   context.closePath();
 };
 

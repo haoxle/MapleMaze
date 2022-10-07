@@ -13,19 +13,21 @@
 
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
-const charHeight = 10;
-const charWidth = 10;
+const charHeight = 50;
+const charWidth = 50;
 const imgWidth = 20;
 const imgHeight = 20;
 let img1w = 80;
 let img1h = 70;
+let girl = new Image();
+girl.src = "./Images/boy.png";
 let img1 = new Image();
 img1.src = "./Images/mushy.png";
 let imgSpear = new Image();
 imgSpear.src = "./Images/spear.png";
 // let charY = (canvas.height - charHeight) / 2;
 // let charX = (canvas.width - charWidth) / 2;
-let charY = 105;
+let charY = 80;
 let charX = 0;
 let rightPress = false;
 let leftPress = false;
@@ -173,7 +175,7 @@ let roadHeight = 200 / mazeArrayOne[0].length;
 //draws the character
 const drawAChar = () => {
   context.beginPath();
-  context.rect(charX, charY, charWidth, charHeight);
+  context.drawImage(girl, charX, charY, charWidth, charHeight);
   context.fillStyle = "#0095DD";
   context.fill();
   context.closePath();
@@ -282,31 +284,31 @@ const move = () => {
     (charX + charWidth >= 0 &&
       charX <= 210 &&
       charY + charHeight >= 0 &&
-      charY <= 70) +
-    (charX + charWidth >= 140 &&
-      charX <= 350 &&
-      charY + charHeight >= 70 &&
-      charY <= 140) +
+      charY <= 60) +
+    (charX + charWidth >= 180 &&
+      charX <= 320 &&
+      charY + charHeight >= 80 &&
+      charY <= 125) +
     (charX + charWidth >= 0 &&
-      charX <= 70 &&
-      charY + charHeight >= 140 &&
+      charX <= 60 &&
+      charY + charHeight >= 150 &&
       charY <= 210) +
     (charX + charWidth >= 0 &&
       charX <= 480 &&
-      charY + charHeight >= 210 &&
+      charY + charHeight >= 230 &&
       charY <= 280) +
     (charX + charWidth >= 420 &&
-      charX <= 480 &&
+      charX <= 465 &&
       charY + charHeight >= 280 &&
       charY <= 350) +
-    (charX + charWidth >= 420 &&
+    (charX + charWidth >= 470 &&
       charX <= 560 &&
       charY + charHeight >= 0 &&
-      charY <= 140)
+      charY <= 125)
   ) {
-    return (go = go * -1.1);
+    return (go = go * -1);
   } else {
-    return (go = 0.5);
+    return (go = 0.7);
   }
 };
 

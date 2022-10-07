@@ -2,6 +2,7 @@
 // Create enemy
 // Mobile and computer conversion
 */
+const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
@@ -164,4 +165,9 @@ const letsPlay = (e) => {
   let loadMap = setInterval(map1);
 };
 
+const reload = (e) => {
+  location.reload();
+};
+
 play.addEventListener("click", letsPlay);
+restart.addEventListener("click", reload);

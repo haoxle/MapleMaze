@@ -15,13 +15,29 @@ const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 const charHeight = 10;
 const charWidth = 10;
-let charY = (canvas.height - charHeight) / 2;
-let charX = (canvas.width - charWidth) / 2;
+const imgWidth = 20;
+const imgHeight = 20;
+let img1 = new Image();
+img1.src = "./Images/pig.png";
+let img2 = new Image();
+img2.src = "./Images/slime.png";
+let img3 = new Image();
+img3.src = "./Images/snail.png";
+let img4 = new Image();
+img4.src = "./Images/ugly.png";
+let img5 = new Image();
+img5.src = "./Images/MapleMush2";
+let img6 = new Image();
+img6.src = "./Images/grass.jpg";
+// let charY = (canvas.height - charHeight) / 2;
+// let charX = (canvas.width - charWidth) / 2;
+let charY = 25;
+let charX = 0;
 let rightPress = false;
 let leftPress = false;
 let upPress = false;
 let downPress = false;
-
+let go = 0.5;
 const mazeArrayOne = [
   [
     0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1,
@@ -167,25 +183,18 @@ const drawAChar = () => {
   context.fill();
   context.closePath();
 };
-
-const drawMap = (context, mazeArrayOne) => {
-  var img = new Image();
-  img.src = "./Images/grass.jpg";
+const drawARect = () => {
   context.beginPath();
-  context.drawImage(img, 0, 0, 20, 20);
-  context.drawImage(img, 20, 0, 20, 20);
-  context.drawImage(img, 40, 0, 20, 20);
-  context.drawImage(img, 60, 0, 20, 20);
-  context.drawImage(img, 60, 20, 20, 20);
-  context.drawImage(img, 60, 40, 20, 20);
-  context.drawImage(img, 60, 60, 20, 20);
-  context.drawImage(img, 20, 40, 20, 20);
-  context.drawImage(img, 0, 40, 20, 20);
-  context.drawImage(img, 20, 60, 20, 20);
+  context.rect(canvas.width / 2 - 50, canvas.height / 2 - 50, 50, 50);
+  context.fillStyle = "green";
+  context.fill();
   context.closePath();
 };
-//   }
-// };
+const drawMap = () => {
+  context.beginPath();
+  context.drawImage(img2, 0, 0, 50, 50);
+  context.closePath();
+};
 
 //collision detection for img
 
@@ -232,28 +241,40 @@ document.addEventListener("keyup", KeyRelease, false);
 
 const move = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  drawMap(context, mazeArrayOne);
+  drawMap();
   drawAChar();
+  drawARect();
   if (rightPress) {
-    charX += 0.5;
+    charX += go;
     if (charX + charWidth > canvas.width) {
       charX = canvas.width - charWidth; //so it does not go out of page
     }
   } else if (leftPress) {
-    charX -= 0.5;
+    charX -= go;
     if (charX < 0) {
       charX = 0;
     }
   } else if (upPress) {
-    charY -= 0.5;
+    charY -= go;
     if (charY < 0) {
       charY = 0;
     }
   } else if (downPress) {
-    charY += 0.5;
+    charY += go;
     if (charY + charHeight > canvas.height) {
       charY = canvas.height - charWidth; //so it does not go out of page
     }
+  }
+  if (
+    charX + charWidth >= canvas.width / 2 - 50 &&
+    charX <= canvas.width / 2 &&
+    charY + charHeight >= canvas.height / 2 - 50 &&
+    charY <= canvas.height / 2
+  ) {
+    return (go = go * -1.1);
+    console.log("colliding");
+  } else {
+    return (go = 0.5);
   }
 };
 

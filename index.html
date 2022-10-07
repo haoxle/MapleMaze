@@ -9,21 +9,24 @@
   </head>
   <body>
     <main>
-      <div class="game__instructions">
-        <h1>Maple Hunt</h1>
-        <p>
-          Welcome adventurer, I need your help! These monsters have taken my
-          weapon and I need you to retrieve this for me. Press the START button
-          and you will be transported into the map. The monster have formed a
-          pack and will lead you to the wrong direction, plan your journey
-          wisely to waste no time! I warn you, these monsters are incredibly
-          sticker, one wrong move and you will have to start again. I wish you
-          the best of luck.
-        </p>
-      </div>
-      <button class="game__start">Start</button>
+      <img src="./Images/maple1.png" alt="title" />
       <div class="game">
-        <canvas id="myCanvas" height="352" width="560"> </canvas>
+        <div class="game__canvas">
+          <canvas id="myCanvas" height="352" width="560"> </canvas>
+          <div class="game__canvas__buttons">
+            <button class="game__start">Start</button>
+            <button class="game__restart">Reset</button>
+          </div>
+        </div>
+        <div class="game__instructions">
+          <p>
+            Welcome adventurer, I need your help! These monsters have taken my
+            weapons and I need you to retrieve this for me. Press the START
+            button and you will be transported into the map. I warn you, these
+            monsters are incredibly sticker, one wrong move and you will have to
+            start again. I wish you the best of luck.
+          </p>
+        </div>
       </div>
     </main>
   </body>

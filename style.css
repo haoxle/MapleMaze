@@ -40,7 +40,6 @@
     width: 10vh;
   }
   .controls {
-    height: 100%;
     display: grid;
   }
   .controls .buttons {

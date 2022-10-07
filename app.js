@@ -1,7 +1,3 @@
-/*Game project
-// Create enemy
-// Mobile and computer conversion
-*/
 const bu = document.getElementById("bu");
 const bd = document.getElementById("bd");
 const bl = document.getElementById("bl");
@@ -178,31 +174,19 @@ restart.addEventListener("click", reload);
 
 const goUp = (e) => {
   upPress = true;
-  // downPress = false;
-  // leftPress = false;
-  // rightPress = false;
-  console.log("up");
+  console.log("up ");
 };
 
 const goDown = (e) => {
   downPress = true;
-  // upPress = false;
-  // leftPress = false;
-  // rightPress = false;
   console.log("down");
 };
 const goLeft = (e) => {
   leftPress = true;
-  // downPress = false;
-  // upPress = false;
-  // rightPress = false;
   console.log("left");
 };
 const goRight = (e) => {
   rightPress = true;
-  // downPress = false;
-  // leftPress = false;
-  // upPress = false;
   console.log("right");
 };
 

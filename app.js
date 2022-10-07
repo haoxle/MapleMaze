@@ -2,7 +2,7 @@
 // Create enemy
 // Mobile and computer conversion
 */
-
+const play = document.querySelector(".game__start");
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 let rightPress = false;
@@ -76,7 +76,7 @@ const moving = () => {
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
 
-const map1 = () => {
+const map1 = (mapOne) => {
   moving();
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
@@ -104,14 +104,7 @@ const map1 = () => {
   context.drawImage(img1, 420, 0, 140, 140);
   context.drawImage(imgSpear, 500, 300, 50, 50);
   context.closePath();
-  if (
-    charX + charWidth >= 480 &&
-    charX <= 560 &&
-    charY + charHeight >= 300 &&
-    charY <= 350
-  ) {
-    map2();
-  }
+
   if (
     (charX + charWidth >= 0 &&
       charX <= 210 &&
@@ -140,7 +133,7 @@ const map1 = () => {
   ) {
     return (go = go * -1);
   } else {
-    return (go = 0.7);
+    return (go = 0.5);
   }
 };
 
@@ -155,60 +148,11 @@ const map2 = () => {
   context.beginPath();
   context.drawImage(img1, 0, 0, img1w, img1h);
   context.drawImage(img1, 0, 140, img1w, img1h);
-  context.drawImage(img1, 0, 210, img1w, img1h);
-  context.drawImage(img1, 70, 0, img1w, img1h);
-  context.drawImage(img1, 70, 210, img1w, img1h);
-  context.drawImage(img1, 70, 210, img1w, img1h);
-  context.drawImage(img1, 140, 0, img1w, img1h);
-  context.drawImage(img1, 140, 70, img1w, img1h);
-  context.drawImage(img1, 140, 210, img1w, img1h);
-  context.drawImage(img1, 210, 70, img1w, img1h);
-  context.drawImage(img1, 210, 210, img1w, img1h);
-  context.drawImage(img1, 280, 70, img1w, img1h);
-  context.drawImage(img1, 280, 210, img1w, img1h);
-  context.drawImage(img1, 350, 210, img1w, img1h);
-  context.drawImage(img1, 420, 210, img1w, img1h);
-  context.drawImage(img1, 420, 280, img1w, img1h);
-  context.drawImage(img1, 420, 0, 140, 140);
   context.drawImage(imgSpear, 240, 0, 50, 50);
   context.closePath();
-  if (
-    charX + charWidth >= 480 &&
-    charX <= 560 &&
-    charY + charHeight >= 300 &&
-    charY <= 350
-  ) {
-    console.log("map2");
-  }
-  if (
-    (charX + charWidth >= 0 &&
-      charX <= 210 &&
-      charY + charHeight >= 0 &&
-      charY <= 60) +
-    (charX + charWidth >= 180 &&
-      charX <= 320 &&
-      charY + charHeight >= 80 &&
-      charY <= 125) +
-    (charX + charWidth >= 0 &&
-      charX <= 60 &&
-      charY + charHeight >= 150 &&
-      charY <= 210) +
-    (charX + charWidth >= 0 &&
-      charX <= 480 &&
-      charY + charHeight >= 230 &&
-      charY <= 280) +
-    (charX + charWidth >= 420 &&
-      charX <= 465 &&
-      charY + charHeight >= 280 &&
-      charY <= 350) +
-    (charX + charWidth >= 470 &&
-      charX <= 560 &&
-      charY + charHeight >= 0 &&
-      charY <= 125)
-  ) {
-    return (go = go * -1);
-  } else {
-    return (go = 0.7);
-  }
 };
-setInterval(map1);
+
+const letsPlay = (e) => {
+  setInterval(map1);
+};
+document.addEventListener("click", letsPlay);

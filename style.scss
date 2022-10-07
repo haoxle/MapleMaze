@@ -13,6 +13,9 @@ body {
   align-self: center;
   justify-content: center;
   main {
+    .hide {
+      display: none;
+    }
     .game {
       width: 560px;
       background-color: rgba(0, 0, 0, 0.6);

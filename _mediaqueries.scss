@@ -1,7 +1,7 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
   body {
     .game__instructions {
-      margin: 9% 6% 0 6%;
+      margin: 4% 6% 0 6%;
       padding: 2vh;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
@@ -9,12 +9,13 @@
       font-size: 2vh;
     }
     img {
-      margin-top: -3%;
+      margin-top: -9%;
       margin-left: 1%;
       height: 20vh;
       width: 30vh;
     }
     .game__canvas {
+      margin-top: -6%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -40,6 +41,65 @@
     border: none;
     width: 10vh;
   }
+
+  .controls {
+    margin-top: 3%;
+    height: 100%;
+    display: grid;
+
+    .buttons {
+      width: 210px;
+      height: 140px;
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      grid-template-rows: 70px 70px;
+      grid-template-columns: 70px 70px 70px;
+    }
+
+    .btn {
+      width: 60px;
+      height: 60px;
+      border: 2px #fff solid;
+      border-bottom: 2px #fff solid;
+      align-self: center;
+      justify-self: center;
+      cursor: pointer;
+      border-radius: 8px;
+      display: grid;
+      box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+    }
+    .chevron {
+      height: 20px;
+      width: 20px;
+      align-self: center;
+      justify-self: center;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    #bu {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 2;
+    }
+    #bd {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 2;
+      grid-row-start: 2;
+    }
+    #bl {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 1;
+      grid-row-start: 2;
+    }
+    #br {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 3;
+      grid-row-start: 2;
+    }
+  }
 }
 @media screen and (min-width: 401px) and (max-width: 820px) {
   body {
@@ -52,7 +112,7 @@
       font-size: 2vh;
     }
     img {
-      margin-top: -3%;
+      margin-top: -8%;
       margin-left: 1%;
       height: 20vh;
       width: 30vh;
@@ -77,12 +137,70 @@
   }
   .game__start,
   .game__restart {
-    margin-top: 4%;
+    margin-top: 5%;
     font-size: 35px;
     background-color: #fca311;
     border-radius: 20px;
     border: none;
     width: 15vh;
+  }
+  .controls {
+    margin-top: 5%;
+    height: 100%;
+    display: grid;
+
+    .buttons {
+      width: 350px;
+      height: 180px;
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      grid-template-rows: 110px 110px;
+      grid-template-columns: 110px 110px 110px;
+    }
+
+    .btn {
+      width: 100px;
+      height: 100px;
+      border: 2px #fff solid;
+      border-bottom: 2px #fff solid;
+      align-self: center;
+      justify-self: center;
+      cursor: pointer;
+      border-radius: 8px;
+      display: grid;
+      box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+    }
+    .chevron {
+      height: 30px;
+      width: 30px;
+      align-self: center;
+      justify-self: center;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    #bu {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 2;
+    }
+    #bd {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 2;
+      grid-row-start: 2;
+    }
+    #bl {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 1;
+      grid-row-start: 2;
+    }
+    #br {
+      background-color: rgba(0, 0, 0, 0.6);
+      grid-column-start: 3;
+      grid-row-start: 2;
+    }
   }
 }
 
@@ -119,13 +237,14 @@
         height: 100%;
       }
     }
-    .arrows {
+    .controls {
       display: none;
     }
   }
   .game__start,
   .game__restart {
-    font-size: 20px;
+    margin-top: 5%;
+    font-size: 15px;
     background-color: #fca311;
     border-radius: 20px;
     border: none;

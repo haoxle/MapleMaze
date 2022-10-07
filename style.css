@@ -32,7 +32,7 @@
   }
   .game__start,
 .game__restart {
-    margin-top: 4%;
+    margin-top: 10%;
     font-size: 20px;
     background-color: #fca311;
     border-radius: 20px;
@@ -40,7 +40,7 @@
     width: 10vh;
   }
   .controls {
-    margin-top: 2%;
+    margin-top: 5%;
     display: grid;
   }
   .controls .buttons {
@@ -267,4 +267,8 @@ body .game .game__canvas {
   justify-content: center;
   justify-self: center;
   background-color: rgba(0, 0, 0, 0.6);
+}
+body button:hover,
+body button:active {
+  text-decoration: none;
 }/*# sourceMappingURL=style.css.map */

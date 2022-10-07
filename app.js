@@ -197,12 +197,12 @@ const stop = (e) => {
   upPress = false;
   console.log("Stop");
 };
-bu.addEventListener("mousedown", goUp);
-bd.addEventListener("mousedown", goDown);
-bl.addEventListener("mousedown", goLeft);
-br.addEventListener("mousedown", goRight);
+bu.addEventListener("touchstart", goUp);
+bd.addEventListener("touchstart", goDown);
+bl.addEventListener("touchstart", goLeft);
+br.addEventListener("touchstart", goRight);
 
-bu.addEventListener("mouseup", stop);
-bd.addEventListener("mouseup", stop);
-bl.addEventListener("mouseup", stop);
-br.addEventListener("mouseup", stop);
+bu.addEventListener("touchend", stop);
+bd.addEventListener("touchend", stop);
+bl.addEventListener("touchend", stop);
+br.addEventListener("touchend", stop);

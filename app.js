@@ -189,7 +189,15 @@ const letsPlay = (e) => {
     context.drawImage(imgSword, 80, 10, 70, 70);
 
     context.closePath();
-
+    if (
+      charX + charWidth >= 90 &&
+      charX <= 130 &&
+      charY + charHeight >= 0 &&
+      charY <= 70
+    ) {
+      clearInterval(loadMap);
+      loadMap = setInterval(map3);
+    }
     if (
       (charX + charWidth >= 140 &&
         charX <= 560 &&
@@ -218,12 +226,29 @@ const letsPlay = (e) => {
       (charX + charWidth >= 280 &&
         charX <= 420 &&
         charY + charHeight >= 280 &&
-        charY <= 350)
+        charY <= 350) +
+      (charX + charWidth >= 140 &&
+        charX <= 210 &&
+        charY + charHeight >= 210 &&
+        charY <= 280)
     ) {
       return (go = go * -1);
     } else {
       return (go = 0.5);
     }
+  };
+
+  const map3 = () => {
+    moving();
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.drawImage(girl, charX, charY, charWidth, charHeight);
+    context.fillStyle = "#0095DD";
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.drawImage(imgSword, 400, 10, 70, 70);
+    context.closePath();
   };
   let loadMap = setInterval(map1);
 };

@@ -1,4 +1,14 @@
 //WRITE ON THE README
+var marioTimer = null;
+var mario = {
+  img: null,
+  x: 0,
+  y: 0,
+  width: 28,
+  height: 42,
+  currentframe: 0,
+  totalframes: 6,
+};
 
 const bu = document.getElementById("bu");
 const bd = document.getElementById("bd");

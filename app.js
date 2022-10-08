@@ -24,6 +24,10 @@ let img1 = new Image();
 img1.src = "./Images/mushy.png";
 let imgSpear = new Image();
 imgSpear.src = "./Images/spear.png";
+let imgSword = new Image();
+imgSword.src = "./Images/sword2.png";
+let img2 = new Image();
+img2.src = "./Images/Slime.png";
 let charY = 80;
 let charX = 0;
 let go = 0.5;
@@ -112,7 +116,7 @@ const letsPlay = (e) => {
     if (
       charX + charWidth >= 480 &&
       charX <= 560 &&
-      charY + charHeight >= 300 &&
+      charY + charHeight >= 340 &&
       charY <= 350
     ) {
       clearInterval(loadMap);
@@ -158,12 +162,69 @@ const letsPlay = (e) => {
     context.fill();
     context.closePath();
     context.beginPath();
-    context.drawImage(img1, 0, 0, img1w, img1h);
-    context.drawImage(img1, 0, 140, img1w, img1h);
-    context.drawImage(imgSpear, 240, 0, 50, 50);
-    context.closePath();
-  };
+    context.drawImage(img2, 140, 0, img1w, img1h);
+    context.drawImage(img2, 210, 0, img1w, img1h);
+    context.drawImage(img2, 280, 0, img1w, img1h);
+    context.drawImage(img2, 350, 0, img1w, img1h);
+    context.drawImage(img2, 420, 0, img1w, img1h);
+    context.drawImage(img2, 490, 0, img1w, img1h);
+    context.drawImage(img2, 560, 0, img1w, img1h);
+    context.drawImage(img2, 70, 70, img1w, img1h);
+    context.drawImage(img2, 140, 70, img1w, img1h);
+    context.drawImage(img2, 210, 70, img1w, img1h);
+    context.drawImage(img2, 560, 70, img1w, img1h);
+    context.drawImage(img2, 140, 140, img1w, img1h);
+    context.drawImage(img2, 210, 140, img1w, img1h);
+    context.drawImage(img2, 350, 140, img1w, img1h);
+    context.drawImage(img2, 490, 140, img1w, img1h);
+    context.drawImage(img2, 560, 140, img1w, img1h);
+    context.drawImage(img2, 0, 210, img1w, img1h);
+    context.drawImage(img2, 140, 210, img1w, img1h);
+    context.drawImage(img2, 350, 210, img1w, img1h);
+    context.drawImage(img2, 490, 210, img1w, img1h);
+    context.drawImage(img2, 560, 210, img1w, img1h);
+    context.drawImage(img2, 0, 280, img1w, img1h);
+    context.drawImage(img2, 280, 280, img1w, img1h);
+    context.drawImage(img2, 350, 280, img1w, img1h);
+    context.drawImage(imgSword, 80, 10, 70, 70);
 
+    context.closePath();
+
+    if (
+      (charX + charWidth >= 140 &&
+        charX <= 560 &&
+        charY + charHeight >= 0 &&
+        charY <= 70) +
+      (charX + charWidth >= 70 &&
+        charX <= 280 &&
+        charY + charHeight >= 70 &&
+        charY <= 130) +
+      (charX + charWidth >= 140 &&
+        charX <= 280 &&
+        charY + charHeight >= 140 &&
+        charY <= 210) +
+      (charX + charWidth >= 350 &&
+        charX <= 420 &&
+        charY + charHeight >= 140 &&
+        charY <= 320) +
+      (charX + charWidth >= 490 &&
+        charX <= 560 &&
+        charY + charHeight >= 140 &&
+        charY <= 280) +
+      (charX + charWidth >= 0 &&
+        charX <= 70 &&
+        charY + charHeight >= 210 &&
+        charY <= 420) +
+      (charX + charWidth >= 280 &&
+        charX <= 420 &&
+        charY + charHeight >= 280 &&
+        charY <= 350)
+    ) {
+      return (go = go * -1);
+    } else {
+      return (go = 0.5);
+    }
+  };
   let loadMap = setInterval(map1);
 };
 

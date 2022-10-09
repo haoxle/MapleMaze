@@ -155,7 +155,7 @@ const letsPlay = (e) => {
     ) {
       return (go = go * -1);
     } else {
-      return (go = 1.1);
+      return (go = 1);
     }
   };
   const map2 = () => {

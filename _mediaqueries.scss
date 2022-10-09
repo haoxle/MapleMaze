@@ -11,8 +11,8 @@
       .game__character {
         margin-top: -2%;
         margin-left: -5%;
-        height: 100px;
-        width: 100px;
+        height: 60px;
+        width: 60px;
       }
     }
     img {
@@ -122,10 +122,11 @@
       border-radius: 20px;
       color: azure;
       font-size: 1.5vh;
+      margin-top: 10%;
       .game__character {
         margin-top: -2%;
-        height: 150px;
-        width: 150px;
+        height: 90px;
+        width: 90px;
       }
     }
     img {
@@ -141,7 +142,7 @@
       align-items: center;
       justify-content: center;
       justify-self: center;
-      width: 100%;
+      width: 95%;
       height: 100%;
       height: auto;
       background-color: rgba(0, 0, 0, 0.6);
@@ -236,10 +237,10 @@
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
       color: azure;
-      font-size: 2.5vh;
+      font-size: 2vh;
       .game__character {
-        height: 120px;
-        width: 120px;
+        height: 100px;
+        width: 100px;
       }
     }
     img {
@@ -254,11 +255,11 @@
       align-items: center;
       justify-content: center;
       justify-self: center;
-      width: 50%;
+      width: 60%;
       height: auto;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
-      margin-top: -2%;
+      margin-top: -4%;
       #myCanvas {
         border-radius: 20px;
         width: 100%;

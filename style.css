@@ -1,7 +1,7 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
   body .game__instructions {
     display: flex;
-    margin: 1% 6% 0 6%;
+    margin: 0% 6% 0 6%;
     padding: 2vh;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -104,6 +104,17 @@
     display: none;
     height: 0;
     width: 0;
+  }
+  .inst2div {
+    display: none;
+  }
+  .inst2div .inst2img {
+    height: 60px;
+    width: 60px;
+    margin: 5%;
+  }
+  .inst2div .wording h1 {
+    font-size: 2vh;
   }
 }
 @media screen and (min-width: 401px) and (max-width: 820px) {
@@ -215,11 +226,21 @@
     height: 0;
     width: 0;
   }
+  .inst2div {
+    display: none;
+  }
+  .inst2div .inst2img {
+    height: 90px;
+    width: 90px;
+  }
+  .inst2div .wording h1 {
+    font-size: 3vh;
+  }
 }
 @media screen and (min-width: 821px) and (max-width: 7000px) {
   body .game__instructions {
     display: flex;
-    margin: 2% 6% 0 6%;
+    margin: 1% 6% 0 6%;
     padding: 2vh;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -227,8 +248,8 @@
     font-size: 2vh;
   }
   body .game__instructions .game__character {
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
   }
   body img {
     margin-top: -3%;
@@ -242,7 +263,7 @@
     align-items: center;
     justify-content: center;
     justify-self: center;
-    width: 55%;
+    width: 50%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
@@ -270,6 +291,16 @@
     display: none;
     height: 0;
     width: 0;
+  }
+  .inst2div {
+    display: none;
+  }
+  .inst2div .inst2img {
+    height: 110px;
+    width: 110px;
+  }
+  .inst2div .wording h1 {
+    font-size: 2vh;
   }
 }
 * {

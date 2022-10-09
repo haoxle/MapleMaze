@@ -5,6 +5,8 @@ const br = document.getElementById("br");
 const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const instruction1 = document.querySelectorAll(".game__info");
+const inst2div = document.querySelector(".inst2div");
+console.log(inst2div);
 console.log(instruction1);
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
@@ -155,10 +157,11 @@ const letsPlay = (e) => {
     ) {
       return (go = go * -1);
     } else {
-      return (go = 1);
+      return (go = 1.1);
     }
   };
   const map2 = () => {
+    inst2div.classList.add("game__instructions");
     moving();
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
@@ -212,28 +215,28 @@ const letsPlay = (e) => {
         charX <= 280 &&
         charY + charHeight >= 70 &&
         charY <= 130) +
-      (charX + charWidth >= 140 &&
+      (charX + charWidth >= 150 &&
         charX <= 280 &&
         charY + charHeight >= 140 &&
-        charY <= 210) +
-      (charX + charWidth >= 350 &&
+        charY <= 200) +
+      (charX + charWidth >= 370 &&
         charX <= 420 &&
-        charY + charHeight >= 140 &&
+        charY + charHeight >= 150 &&
         charY <= 320) +
-      (charX + charWidth >= 490 &&
+      (charX + charWidth >= 510 &&
         charX <= 560 &&
-        charY + charHeight >= 140 &&
-        charY <= 280) +
+        charY + charHeight >= 150 &&
+        charY <= 270) +
       (charX + charWidth >= 0 &&
-        charX <= 70 &&
+        charX <= 60 &&
         charY + charHeight >= 210 &&
         charY <= 420) +
       (charX + charWidth >= 280 &&
         charX <= 420 &&
         charY + charHeight >= 280 &&
         charY <= 350) +
-      (charX + charWidth >= 140 &&
-        charX <= 210 &&
+      (charX + charWidth >= 150 &&
+        charX <= 200 &&
         charY + charHeight >= 210 &&
         charY <= 280)
     ) {
@@ -267,6 +270,7 @@ const loopinst = (instruction1) => {
   );
 };
 
+inst2div.addEventListener("click", letsPlay);
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
 

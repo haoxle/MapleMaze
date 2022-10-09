@@ -104,13 +104,16 @@ const showInstruction3 = () => {
 const hideInstruction2 = () => {
   inst2div.classList.add("hide");
 };
+const showInstruction2 = () => {
+  inst2div.classList.remove("hide");
+};
 const hideStartBtn = () => {
   play.classList.add("hide");
 };
 
 hideInstruction1();
 hideInstruction3();
-
+hideInstruction2();
 const renderMap1 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
@@ -258,7 +261,6 @@ const letsPlay = (e) => {
     map1BarrierCondition();
     moving();
     showInstruction1();
-    // instruction1();
     if (
       charX + charWidth >= 480 &&
       charX <= 560 &&
@@ -270,12 +272,11 @@ const letsPlay = (e) => {
     }
   };
   const map2 = () => {
-    inst2div.classList.add("game__instructions");
-    inst3div.classList.add("game__instructions");
     map2BarrierCondition();
     renderMap2();
     moving();
     hideInstruction1();
+    showInstruction2();
     if (
       charX + charWidth >= 90 &&
       charX <= 130 &&
@@ -346,3 +347,8 @@ br.addEventListener("touchend", stop);
 //     instruction.addEventListener("click", letsPlay)
 //   );
 // };
+
+//Render 3rd Map
+// Add winning statement
+//Refractor
+//Last minute detailing

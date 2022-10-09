@@ -5,7 +5,8 @@ const br = document.getElementById("br");
 const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const instruction1 = document.querySelectorAll(".game__info");
-const inst1div = document.querySelector(".game__info");
+const instdiv = document.querySelector(".game__info");
+const inst1div = document.querySelector(".inst1div");
 const inst2div = document.querySelector(".inst2div");
 const inst3div = document.querySelector(".inst3div");
 const canvas = document.getElementById("myCanvas");
@@ -85,8 +86,14 @@ const moving = () => {
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
 
+const hideInstruction = () => {
+  instdiv.classList.add("hide");
+};
 const hideInstruction1 = () => {
   inst1div.classList.add("hide");
+};
+const showInstruction1 = () => {
+  inst1div.classList.remove("hide");
 };
 const hideInstruction3 = () => {
   inst3div.classList.add("hide");
@@ -97,10 +104,12 @@ const showInstruction3 = () => {
 const hideInstruction2 = () => {
   inst2div.classList.add("hide");
 };
-hideInstruction3();
 const hideStartBtn = () => {
   play.classList.add("hide");
 };
+
+hideInstruction1();
+hideInstruction3();
 
 const renderMap1 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -242,11 +251,14 @@ const map2BarrierCondition = () => {
 
 const letsPlay = (e) => {
   hideStartBtn();
-  hideInstruction1();
+  hideInstruction();
+
   const map1 = () => {
+    renderMap1();
     map1BarrierCondition();
     moving();
-    renderMap1();
+    showInstruction1();
+    // instruction1();
     if (
       charX + charWidth >= 480 &&
       charX <= 560 &&
@@ -263,6 +275,7 @@ const letsPlay = (e) => {
     map2BarrierCondition();
     renderMap2();
     moving();
+    hideInstruction1();
     if (
       charX + charWidth >= 90 &&
       charX <= 130 &&

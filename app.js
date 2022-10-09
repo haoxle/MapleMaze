@@ -85,6 +85,7 @@ const moving = () => {
 
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
+
 const hideInstruction1 = () => {
   inst1div.classList.add("hide");
 };
@@ -98,9 +99,11 @@ const hideInstruction2 = () => {
   inst2div.classList.add("hide");
 };
 hideInstruction3();
-
-const letsPlay = (e) => {
+const hideStartBtn = () => {
   play.classList.add("hide");
+};
+const letsPlay = (e) => {
+  hideStartBtn();
   hideInstruction1();
   const map1 = () => {
     moving();

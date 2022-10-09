@@ -297,6 +297,7 @@
     display: none;
   }
   .inst2div .inst2img {
+    margin-top: -2%;
     height: 150px;
     width: 150px;
   }

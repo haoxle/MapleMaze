@@ -5,9 +5,10 @@ const br = document.getElementById("br");
 const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const instruction1 = document.querySelectorAll(".game__info");
+const inst1div = document.querySelector(".game__info");
 const inst2div = document.querySelector(".inst2div");
-console.log(inst2div);
-console.log(instruction1);
+const inst3div = document.querySelector(".inst3div");
+
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 let rightPress = false;
@@ -84,14 +85,23 @@ const moving = () => {
 
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
+const hideInstruction1 = () => {
+  inst1div.classList.add("hide");
+};
+const hideInstruction3 = () => {
+  inst3div.classList.add("hide");
+};
+const showInstruction3 = () => {
+  inst3div.classList.remove("hide");
+};
+const hideInstruction2 = () => {
+  inst2div.classList.add("hide");
+};
+hideInstruction3();
 
 const letsPlay = (e) => {
   play.classList.add("hide");
-  const addHideToInst1 = () => {
-    instruction1.forEach((instruction) => instruction.classList.add("hide"));
-  };
-  console.log(addHideToInst1());
-  console.log(instruction1);
+  hideInstruction1();
   const map1 = () => {
     moving();
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -162,6 +172,8 @@ const letsPlay = (e) => {
   };
   const map2 = () => {
     inst2div.classList.add("game__instructions");
+    inst3div.classList.add("game__instructions");
+
     moving();
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
@@ -247,6 +259,8 @@ const letsPlay = (e) => {
   };
 
   const map3 = () => {
+    hideInstruction2();
+    showInstruction3();
     moving();
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
@@ -254,9 +268,26 @@ const letsPlay = (e) => {
     context.fillStyle = "#0095DD";
     context.fill();
     context.closePath();
-    context.beginPath();
-    context.drawImage(imgSword, 400, 10, 70, 70);
-    context.closePath();
+
+    if (
+      charX + charWidth >= 90 &&
+      charX <= 130 &&
+      charY + charHeight >= 0 &&
+      charY <= 70
+    ) {
+      clearInterval(loadMap);
+      loadMap = setInterval(map3);
+    }
+    if (
+      charX + charWidth >= 150 &&
+      charX <= 200 &&
+      charY + charHeight >= 210 &&
+      charY <= 280
+    ) {
+      return (go = go * -1);
+    } else {
+      return (go = 1.1);
+    }
   };
   let loadMap = setInterval(map1);
 };
@@ -264,15 +295,15 @@ const letsPlay = (e) => {
 const reload = (e) => {
   location.reload();
 };
-const loopinst = (instruction1) => {
-  instruction1.forEach((instruction) =>
-    instruction.addEventListener("click", letsPlay)
-  );
-};
-
+// const loopinst = (instruction1) => {
+//   instruction1.forEach((instruction) =>
+//     instruction.addEventListener("click", letsPlay)
+//   );
+// };
 inst2div.addEventListener("click", letsPlay);
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
+inst3div.addEventListener("click", letsPlay);
 
 const goUp = (e) => {
   upPress = true;

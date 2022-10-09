@@ -100,6 +100,9 @@
     grid-column-start: 3;
     grid-row-start: 2;
   }
+  .hide {
+    display: none;
+  }
 }
 @media screen and (min-width: 401px) and (max-width: 820px) {
   body .game__instructions {
@@ -204,6 +207,9 @@
     grid-column-start: 3;
     grid-row-start: 2;
   }
+  .hide {
+    display: none;
+  }
 }
 @media screen and (min-width: 821px) and (max-width: 7000px) {
   body .game__instructions {
@@ -213,7 +219,7 @@
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     color: azure;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   body .game__instructions .game__character {
     height: 120px;
@@ -255,6 +261,11 @@
     height: 4vh;
     width: 5vw;
   }
+  .hide {
+    display: none;
+    height: 0;
+    width: 0;
+  }
 }
 * {
   padding: 0;
@@ -278,6 +289,8 @@ body .game {
 }
 body .game .hide {
   display: none;
+  height: 0;
+  width: 0;
 }
 body .game .game__canvas {
   display: flex;

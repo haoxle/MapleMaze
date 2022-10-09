@@ -21,6 +21,8 @@ body {
 
     .hide {
       display: none;
+      height: 0;
+      width: 0;
     }
     .game__canvas {
       display: flex;

@@ -1,21 +1,11 @@
-//WRITE ON THE README
-var marioTimer = null;
-var mario = {
-  img: null,
-  x: 0,
-  y: 0,
-  width: 28,
-  height: 42,
-  currentframe: 0,
-  totalframes: 6,
-};
-
 const bu = document.getElementById("bu");
 const bd = document.getElementById("bd");
 const bl = document.getElementById("bl");
 const br = document.getElementById("br");
 const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
+const instruction1 = document.querySelectorAll(".game__info");
+console.log(instruction1);
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 let rightPress = false;
@@ -95,6 +85,11 @@ document.addEventListener("keyup", KeyRelease, false);
 
 const letsPlay = (e) => {
   play.classList.add("hide");
+  const addHideToInst1 = () => {
+    instruction1.forEach((instruction) => instruction.classList.add("hide"));
+  };
+  console.log(addHideToInst1());
+  console.log(instruction1);
   const map1 = () => {
     moving();
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -265,6 +260,11 @@ const letsPlay = (e) => {
 
 const reload = (e) => {
   location.reload();
+};
+const loopinst = (instruction1) => {
+  instruction1.forEach((instruction) =>
+    instruction.addEventListener("click", letsPlay)
+  );
 };
 
 play.addEventListener("click", letsPlay);

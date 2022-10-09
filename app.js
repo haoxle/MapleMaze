@@ -8,7 +8,6 @@ const instruction1 = document.querySelectorAll(".game__info");
 const inst1div = document.querySelector(".game__info");
 const inst2div = document.querySelector(".inst2div");
 const inst3div = document.querySelector(".inst3div");
-
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 let rightPress = false;
@@ -63,7 +62,7 @@ const moving = () => {
   if (rightPress) {
     charX += go;
     if (charX + charWidth > canvas.width) {
-      charX = canvas.width - charWidth; //so it does not go out of page
+      charX = canvas.width - charWidth;
     }
   } else if (leftPress) {
     charX -= go;
@@ -78,7 +77,7 @@ const moving = () => {
   } else if (downPress) {
     charY += go;
     if (charY + charHeight > canvas.height) {
-      charY = canvas.height - charWidth; //so it does not go out of page
+      charY = canvas.height - charWidth;
     }
   }
 };
@@ -102,37 +101,152 @@ hideInstruction3();
 const hideStartBtn = () => {
   play.classList.add("hide");
 };
+
+const renderMap1 = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.drawImage(girl, charX, charY, charWidth, charHeight);
+  context.fillStyle = "#0095DD";
+  context.fill();
+  context.closePath();
+  context.beginPath();
+  context.drawImage(img1, 0, 0, img1w, img1h);
+  context.drawImage(img1, 0, 140, img1w, img1h);
+  context.drawImage(img1, 0, 210, img1w, img1h);
+  context.drawImage(img1, 70, 0, img1w, img1h);
+  context.drawImage(img1, 70, 210, img1w, img1h);
+  context.drawImage(img1, 70, 210, img1w, img1h);
+  context.drawImage(img1, 140, 0, img1w, img1h);
+  context.drawImage(img1, 140, 70, img1w, img1h);
+  context.drawImage(img1, 140, 210, img1w, img1h);
+  context.drawImage(img1, 210, 70, img1w, img1h);
+  context.drawImage(img1, 210, 210, img1w, img1h);
+  context.drawImage(img1, 280, 70, img1w, img1h);
+  context.drawImage(img1, 280, 210, img1w, img1h);
+  context.drawImage(img1, 350, 210, img1w, img1h);
+  context.drawImage(img1, 420, 210, img1w, img1h);
+  context.drawImage(img1, 420, 280, img1w, img1h);
+  context.drawImage(img1, 420, 0, 140, 140);
+  context.drawImage(imgSpear, 500, 300, 50, 50);
+  context.closePath();
+};
+
+const renderMap2 = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.drawImage(girl, charX, charY, charWidth, charHeight);
+  context.fillStyle = "#0095DD";
+  context.fill();
+  context.closePath();
+  context.beginPath();
+  context.drawImage(img2, 140, 0, img1w, img1h);
+  context.drawImage(img2, 210, 0, img1w, img1h);
+  context.drawImage(img2, 280, 0, img1w, img1h);
+  context.drawImage(img2, 350, 0, img1w, img1h);
+  context.drawImage(img2, 420, 0, img1w, img1h);
+  context.drawImage(img2, 490, 0, img1w, img1h);
+  context.drawImage(img2, 560, 0, img1w, img1h);
+  context.drawImage(img2, 70, 70, img1w, img1h);
+  context.drawImage(img2, 140, 70, img1w, img1h);
+  context.drawImage(img2, 210, 70, img1w, img1h);
+  context.drawImage(img2, 560, 70, img1w, img1h);
+  context.drawImage(img2, 140, 140, img1w, img1h);
+  context.drawImage(img2, 210, 140, img1w, img1h);
+  context.drawImage(img2, 350, 140, img1w, img1h);
+  context.drawImage(img2, 490, 140, img1w, img1h);
+  context.drawImage(img2, 560, 140, img1w, img1h);
+  context.drawImage(img2, 0, 210, img1w, img1h);
+  context.drawImage(img2, 140, 210, img1w, img1h);
+  context.drawImage(img2, 350, 210, img1w, img1h);
+  context.drawImage(img2, 490, 210, img1w, img1h);
+  context.drawImage(img2, 560, 210, img1w, img1h);
+  context.drawImage(img2, 0, 280, img1w, img1h);
+  context.drawImage(img2, 280, 280, img1w, img1h);
+  context.drawImage(img2, 350, 280, img1w, img1h);
+  context.drawImage(imgSword, 80, 10, 70, 70);
+  context.closePath();
+};
+const map1BarrierCondition = () => {
+  if (
+    (charX + charWidth >= 0 &&
+      charX <= 210 &&
+      charY + charHeight >= 0 &&
+      charY <= 60) +
+    (charX + charWidth >= 180 &&
+      charX <= 320 &&
+      charY + charHeight >= 80 &&
+      charY <= 125) +
+    (charX + charWidth >= 0 &&
+      charX <= 60 &&
+      charY + charHeight >= 150 &&
+      charY <= 210) +
+    (charX + charWidth >= 0 &&
+      charX <= 480 &&
+      charY + charHeight >= 230 &&
+      charY <= 280) +
+    (charX + charWidth >= 420 &&
+      charX <= 465 &&
+      charY + charHeight >= 280 &&
+      charY <= 350) +
+    (charX + charWidth >= 470 &&
+      charX <= 560 &&
+      charY + charHeight >= 0 &&
+      charY <= 125)
+  ) {
+    return (go = go * -1);
+  } else {
+    return (go = 1.1);
+  }
+};
+
+const map2BarrierCondition = () => {
+  if (
+    (charX + charWidth >= 140 &&
+      charX <= 560 &&
+      charY + charHeight >= 0 &&
+      charY <= 70) +
+    (charX + charWidth >= 70 &&
+      charX <= 280 &&
+      charY + charHeight >= 70 &&
+      charY <= 130) +
+    (charX + charWidth >= 150 &&
+      charX <= 280 &&
+      charY + charHeight >= 140 &&
+      charY <= 200) +
+    (charX + charWidth >= 370 &&
+      charX <= 420 &&
+      charY + charHeight >= 150 &&
+      charY <= 320) +
+    (charX + charWidth >= 510 &&
+      charX <= 560 &&
+      charY + charHeight >= 150 &&
+      charY <= 270) +
+    (charX + charWidth >= 0 &&
+      charX <= 60 &&
+      charY + charHeight >= 210 &&
+      charY <= 420) +
+    (charX + charWidth >= 280 &&
+      charX <= 420 &&
+      charY + charHeight >= 280 &&
+      charY <= 350) +
+    (charX + charWidth >= 150 &&
+      charX <= 200 &&
+      charY + charHeight >= 210 &&
+      charY <= 280)
+  ) {
+    return (go = go * -1);
+  } else {
+    return (go = 1.1);
+  }
+};
+
 const letsPlay = (e) => {
   hideStartBtn();
   hideInstruction1();
   const map1 = () => {
+    map1BarrierCondition();
     moving();
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.beginPath();
-    context.drawImage(girl, charX, charY, charWidth, charHeight);
-    context.fillStyle = "#0095DD";
-    context.fill();
-    context.closePath();
-    context.beginPath();
-    context.drawImage(img1, 0, 0, img1w, img1h);
-    context.drawImage(img1, 0, 140, img1w, img1h);
-    context.drawImage(img1, 0, 210, img1w, img1h);
-    context.drawImage(img1, 70, 0, img1w, img1h);
-    context.drawImage(img1, 70, 210, img1w, img1h);
-    context.drawImage(img1, 70, 210, img1w, img1h);
-    context.drawImage(img1, 140, 0, img1w, img1h);
-    context.drawImage(img1, 140, 70, img1w, img1h);
-    context.drawImage(img1, 140, 210, img1w, img1h);
-    context.drawImage(img1, 210, 70, img1w, img1h);
-    context.drawImage(img1, 210, 210, img1w, img1h);
-    context.drawImage(img1, 280, 70, img1w, img1h);
-    context.drawImage(img1, 280, 210, img1w, img1h);
-    context.drawImage(img1, 350, 210, img1w, img1h);
-    context.drawImage(img1, 420, 210, img1w, img1h);
-    context.drawImage(img1, 420, 280, img1w, img1h);
-    context.drawImage(img1, 420, 0, 140, 140);
-    context.drawImage(imgSpear, 500, 300, 50, 50);
-    context.closePath();
+    renderMap1();
     if (
       charX + charWidth >= 480 &&
       charX <= 560 &&
@@ -142,76 +256,13 @@ const letsPlay = (e) => {
       clearInterval(loadMap);
       loadMap = setInterval(map2);
     }
-    if (
-      (charX + charWidth >= 0 &&
-        charX <= 210 &&
-        charY + charHeight >= 0 &&
-        charY <= 60) +
-      (charX + charWidth >= 180 &&
-        charX <= 320 &&
-        charY + charHeight >= 80 &&
-        charY <= 125) +
-      (charX + charWidth >= 0 &&
-        charX <= 60 &&
-        charY + charHeight >= 150 &&
-        charY <= 210) +
-      (charX + charWidth >= 0 &&
-        charX <= 480 &&
-        charY + charHeight >= 230 &&
-        charY <= 280) +
-      (charX + charWidth >= 420 &&
-        charX <= 465 &&
-        charY + charHeight >= 280 &&
-        charY <= 350) +
-      (charX + charWidth >= 470 &&
-        charX <= 560 &&
-        charY + charHeight >= 0 &&
-        charY <= 125)
-    ) {
-      return (go = go * -1);
-    } else {
-      return (go = 1.1);
-    }
   };
   const map2 = () => {
     inst2div.classList.add("game__instructions");
     inst3div.classList.add("game__instructions");
-
+    map2BarrierCondition();
+    renderMap2();
     moving();
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.beginPath();
-    context.drawImage(girl, charX, charY, charWidth, charHeight);
-    context.fillStyle = "#0095DD";
-    context.fill();
-    context.closePath();
-    context.beginPath();
-    context.drawImage(img2, 140, 0, img1w, img1h);
-    context.drawImage(img2, 210, 0, img1w, img1h);
-    context.drawImage(img2, 280, 0, img1w, img1h);
-    context.drawImage(img2, 350, 0, img1w, img1h);
-    context.drawImage(img2, 420, 0, img1w, img1h);
-    context.drawImage(img2, 490, 0, img1w, img1h);
-    context.drawImage(img2, 560, 0, img1w, img1h);
-    context.drawImage(img2, 70, 70, img1w, img1h);
-    context.drawImage(img2, 140, 70, img1w, img1h);
-    context.drawImage(img2, 210, 70, img1w, img1h);
-    context.drawImage(img2, 560, 70, img1w, img1h);
-    context.drawImage(img2, 140, 140, img1w, img1h);
-    context.drawImage(img2, 210, 140, img1w, img1h);
-    context.drawImage(img2, 350, 140, img1w, img1h);
-    context.drawImage(img2, 490, 140, img1w, img1h);
-    context.drawImage(img2, 560, 140, img1w, img1h);
-    context.drawImage(img2, 0, 210, img1w, img1h);
-    context.drawImage(img2, 140, 210, img1w, img1h);
-    context.drawImage(img2, 350, 210, img1w, img1h);
-    context.drawImage(img2, 490, 210, img1w, img1h);
-    context.drawImage(img2, 560, 210, img1w, img1h);
-    context.drawImage(img2, 0, 280, img1w, img1h);
-    context.drawImage(img2, 280, 280, img1w, img1h);
-    context.drawImage(img2, 350, 280, img1w, img1h);
-    context.drawImage(imgSword, 80, 10, 70, 70);
-
-    context.closePath();
     if (
       charX + charWidth >= 90 &&
       charX <= 130 &&
@@ -221,46 +272,7 @@ const letsPlay = (e) => {
       clearInterval(loadMap);
       loadMap = setInterval(map3);
     }
-    if (
-      (charX + charWidth >= 140 &&
-        charX <= 560 &&
-        charY + charHeight >= 0 &&
-        charY <= 70) +
-      (charX + charWidth >= 70 &&
-        charX <= 280 &&
-        charY + charHeight >= 70 &&
-        charY <= 130) +
-      (charX + charWidth >= 150 &&
-        charX <= 280 &&
-        charY + charHeight >= 140 &&
-        charY <= 200) +
-      (charX + charWidth >= 370 &&
-        charX <= 420 &&
-        charY + charHeight >= 150 &&
-        charY <= 320) +
-      (charX + charWidth >= 510 &&
-        charX <= 560 &&
-        charY + charHeight >= 150 &&
-        charY <= 270) +
-      (charX + charWidth >= 0 &&
-        charX <= 60 &&
-        charY + charHeight >= 210 &&
-        charY <= 420) +
-      (charX + charWidth >= 280 &&
-        charX <= 420 &&
-        charY + charHeight >= 280 &&
-        charY <= 350) +
-      (charX + charWidth >= 150 &&
-        charX <= 200 &&
-        charY + charHeight >= 210 &&
-        charY <= 280)
-    ) {
-      return (go = go * -1);
-    } else {
-      return (go = 1.1);
-    }
   };
-
   const map3 = () => {
     hideInstruction2();
     showInstruction3();
@@ -271,26 +283,6 @@ const letsPlay = (e) => {
     context.fillStyle = "#0095DD";
     context.fill();
     context.closePath();
-
-    if (
-      charX + charWidth >= 90 &&
-      charX <= 130 &&
-      charY + charHeight >= 0 &&
-      charY <= 70
-    ) {
-      clearInterval(loadMap);
-      loadMap = setInterval(map3);
-    }
-    if (
-      charX + charWidth >= 150 &&
-      charX <= 200 &&
-      charY + charHeight >= 210 &&
-      charY <= 280
-    ) {
-      return (go = go * -1);
-    } else {
-      return (go = 1.1);
-    }
   };
   let loadMap = setInterval(map1);
 };
@@ -298,11 +290,6 @@ const letsPlay = (e) => {
 const reload = (e) => {
   location.reload();
 };
-// const loopinst = (instruction1) => {
-//   instruction1.forEach((instruction) =>
-//     instruction.addEventListener("click", letsPlay)
-//   );
-// };
 inst2div.addEventListener("click", letsPlay);
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
@@ -342,3 +329,9 @@ bu.addEventListener("touchend", stop);
 bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);
 br.addEventListener("touchend", stop);
+
+// const loopinst = (instruction1) => {
+//   instruction1.forEach((instruction) =>
+//     instruction.addEventListener("click", letsPlay)
+//   );
+// };

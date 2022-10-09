@@ -15,6 +15,7 @@
         width: 60px;
       }
     }
+
     img {
       margin-top: -9%;
       margin-left: 1%;
@@ -108,15 +109,15 @@
   }
   .hide {
     display: none;
-    height: 0;
-    width: 0;
+    max-height: none;
+    min-width: none;
   }
   .inst2div {
     display: none;
     .inst2img {
-      height: 60px;
-      width: 60px;
-      margin: 5%;
+      height: 90px;
+      width: 90px;
+      margin: 0% 4% 0 0;
     }
     .wording {
       h1 {
@@ -134,12 +135,12 @@
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
       color: azure;
-      font-size: 1.5vh;
+      font-size: 1.6vh;
       margin-top: 10%;
       .game__character {
-        margin-top: -2%;
-        height: 90px;
-        width: 90px;
+        margin-top: -3%;
+        height: 150px;
+        width: 150px;
       }
     }
     img {
@@ -236,19 +237,18 @@
   }
   .hide {
     display: none;
-    height: 0;
-    width: 0;
+    max-height: none;
+    min-width: none;
   }
   .inst2div {
     display: none;
     .inst2img {
-      height: 90px;
-      width: 90px;
+      height: 150px;
+      width: 150px;
+      margin: 0% 4% 0 0;
     }
-    .wording {
-      h1 {
-        font-size: 3vh;
-      }
+    h1 {
+      font-size: 2vh;
     }
   }
 }
@@ -257,15 +257,15 @@
   body {
     .game__instructions {
       display: flex;
-      margin: 1% 6% 0 6%;
-      padding: 2vh;
+      margin: 3% 6% 0 6%;
+      padding: 1vh;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
       color: azure;
       font-size: 2vh;
       .game__character {
-        height: 110px;
-        width: 110px;
+        height: 130px;
+        width: 130px;
       }
     }
     img {
@@ -313,12 +313,12 @@
   .inst2div {
     display: none;
     .inst2img {
-      height: 110px;
-      width: 110px;
+      height: 150px;
+      width: 150px;
     }
     .wording {
       h1 {
-        font-size: 2vh;
+        font-size: 2.5vh;
       }
     }
   }

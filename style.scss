@@ -19,11 +19,6 @@ body {
     align-items: center;
     justify-content: center;
 
-    .hide {
-      display: none;
-      height: 0;
-      width: 0;
-    }
     .game__canvas {
       display: flex;
       flex-direction: column;
@@ -36,5 +31,10 @@ body {
   button:hover,
   button:active {
     text-decoration: none;
+  }
+  .hide {
+    display: none;
+    max-height: none;
+    min-width: none;
   }
 }

@@ -102,16 +102,16 @@
   }
   .hide {
     display: none;
-    height: 0;
-    width: 0;
+    max-height: none;
+    min-width: none;
   }
   .inst2div {
     display: none;
   }
   .inst2div .inst2img {
-    height: 60px;
-    width: 60px;
-    margin: 5%;
+    height: 90px;
+    width: 90px;
+    margin: 0% 4% 0 0;
   }
   .inst2div .wording h1 {
     font-size: 2vh;
@@ -125,13 +125,13 @@
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     color: azure;
-    font-size: 1.5vh;
+    font-size: 1.6vh;
     margin-top: 10%;
   }
   body .game__instructions .game__character {
-    margin-top: -2%;
-    height: 90px;
-    width: 90px;
+    margin-top: -3%;
+    height: 150px;
+    width: 150px;
   }
   body img {
     margin-top: -8%;
@@ -223,33 +223,34 @@
   }
   .hide {
     display: none;
-    height: 0;
-    width: 0;
+    max-height: none;
+    min-width: none;
   }
   .inst2div {
     display: none;
   }
   .inst2div .inst2img {
-    height: 90px;
-    width: 90px;
+    height: 150px;
+    width: 150px;
+    margin: 0% 4% 0 0;
   }
-  .inst2div .wording h1 {
-    font-size: 3vh;
+  .inst2div h1 {
+    font-size: 2vh;
   }
 }
 @media screen and (min-width: 821px) and (max-width: 7000px) {
   body .game__instructions {
     display: flex;
-    margin: 1% 6% 0 6%;
-    padding: 2vh;
+    margin: 3% 6% 0 6%;
+    padding: 1vh;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     color: azure;
     font-size: 2vh;
   }
   body .game__instructions .game__character {
-    height: 110px;
-    width: 110px;
+    height: 130px;
+    width: 130px;
   }
   body img {
     margin-top: -3%;
@@ -296,11 +297,11 @@
     display: none;
   }
   .inst2div .inst2img {
-    height: 110px;
-    width: 110px;
+    height: 150px;
+    width: 150px;
   }
   .inst2div .wording h1 {
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
 }
 * {
@@ -323,11 +324,6 @@ body .game {
   align-items: center;
   justify-content: center;
 }
-body .game .hide {
-  display: none;
-  height: 0;
-  width: 0;
-}
 body .game .game__canvas {
   display: flex;
   flex-direction: column;
@@ -339,4 +335,9 @@ body .game .game__canvas {
 body button:hover,
 body button:active {
   text-decoration: none;
+}
+body .hide {
+  display: none;
+  max-height: none;
+  min-width: none;
 }/*# sourceMappingURL=style.css.map */

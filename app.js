@@ -290,10 +290,8 @@ const letsPlay = (e) => {
 const reload = (e) => {
   location.reload();
 };
-inst2div.addEventListener("click", letsPlay);
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
-inst3div.addEventListener("click", letsPlay);
 
 const goUp = (e) => {
   upPress = true;

@@ -434,6 +434,4 @@ bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);
 br.addEventListener("touchend", stop);
 
-//barrier conditions
-//Last minute detailing
 //add background music if possible

@@ -40,7 +40,7 @@
   .game__start,
 .game__restart {
     margin-top: 10%;
-    font-size: 20px;
+    font-size: 2vh;
     background-color: #fca311;
     border-radius: 20px;
     border: none;
@@ -212,11 +212,11 @@
   .game__start,
 .game__restart {
     margin-top: 5%;
-    font-size: 25px;
+    font-size: 2vh;
     background-color: #fca311;
     border-radius: 20px;
     border: none;
-    width: 15vh;
+    width: 10vh;
   }
   .controls {
     margin-top: 3%;

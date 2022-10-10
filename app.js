@@ -433,5 +433,3 @@ bu.addEventListener("touchend", stop);
 bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);
 br.addEventListener("touchend", stop);
-
-//add background music if possible

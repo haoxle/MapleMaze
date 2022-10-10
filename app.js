@@ -23,6 +23,7 @@ const imgWidth = 20;
 const imgHeight = 20;
 let img1w = 80;
 let img1h = 70;
+
 let girl = new Image();
 girl.src = "./Images/boy.png";
 let img1 = new Image();
@@ -31,8 +32,27 @@ let imgSpear = new Image();
 imgSpear.src = "./Images/spear.png";
 let imgSword = new Image();
 imgSword.src = "./Images/sword2.png";
+
+let scythe = new Image();
+scythe.src = "./Images/scythe.png";
 let img2 = new Image();
 img2.src = "./Images/Slime.png";
+let img3 = new Image();
+img3.src = "./Images/snail.png";
+let img4 = new Image();
+img4.src = "./Images/ugly.png";
+
+let wall = new Image();
+wall.src = "./Images/map.png";
+
+let wall2 = new Image();
+wall2.src = "./Images/map2.png";
+
+let wall3 = new Image();
+wall3.src = "./Images/map3.png";
+
+let wall4 = new Image();
+wall4.src = "./Images/msM.png";
 let charY = 80;
 let charX = 0;
 let go = 0.5;
@@ -107,6 +127,9 @@ hideInstruction4();
 const renderMap1 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
+  context.drawImage(wall, 0, 0, canvas.width, canvas.height);
+  context.closePath();
+  context.beginPath();
   context.drawImage(girl, charX, charY, charWidth, charHeight);
   context.fillStyle = "#0095DD";
   context.fill();
@@ -135,6 +158,9 @@ const renderMap1 = () => {
 
 const renderMap2 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.drawImage(wall2, 0, 0, canvas.width, canvas.height);
+  context.closePath();
   context.beginPath();
   context.drawImage(girl, charX, charY, charWidth, charHeight);
   context.fillStyle = "#0095DD";
@@ -166,6 +192,46 @@ const renderMap2 = () => {
   context.drawImage(img2, 280, 280, img1w, img1h);
   context.drawImage(img2, 350, 280, img1w, img1h);
   context.drawImage(imgSword, 80, 10, 70, 70);
+  context.closePath();
+};
+
+const renderMap3 = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.drawImage(wall3, 0, 0, canvas.width, canvas.height);
+  context.closePath();
+  context.beginPath();
+  context.drawImage(girl, charX, charY, charWidth, charHeight);
+  context.fillStyle = "#0095DD";
+  context.fill();
+  context.closePath();
+  context.beginPath();
+  context.drawImage(img3, 130, 0, 100, 100);
+  context.drawImage(img4, 240, 140, 150, 150);
+  context.drawImage(img1, 0, 210, 120, 120);
+  context.drawImage(img3, 100, 180, 60, 70);
+  context.drawImage(img4, 70, 70, 70, 70);
+  context.drawImage(img1, 10, 10, 30, 30);
+  context.drawImage(img2, 180, 130, 50, 50);
+  context.drawImage(img2, 180, 200, 50, 50);
+  context.drawImage(img4, 270, 0, 100, 100);
+  context.drawImage(img3, 400, 100, 100, 100);
+  context.drawImage(img1, 350, 160, 54, 40);
+  context.drawImage(img1, 470, 250, 100, 100);
+  context.drawImage(img1, 400, 230, 50, 50);
+  context.drawImage(scythe, 120, 300, 50, 50);
+  context.closePath();
+};
+
+const renderMap4 = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.drawImage(wall4, 0, 0, canvas.width, canvas.height);
+  context.closePath();
+  context.beginPath();
+  context.drawImage(girl, 230, 220, 90, 100);
+  context.fillStyle = "#0095DD";
+  context.fill();
   context.closePath();
 };
 
@@ -243,6 +309,19 @@ const map2BarrierCondition = () => {
   }
 };
 
+const map3BarrierCondition = () => {
+  if (
+    charX + charWidth >= 470 &&
+    charX <= 560 &&
+    charY + charHeight >= 0 &&
+    charY <= 125
+  ) {
+    return (go = go * -1);
+  } else {
+    return (go = 1.1);
+  }
+};
+
 const letsPlay = (e) => {
   hideStartBtn();
   hideInstruction();
@@ -279,15 +358,27 @@ const letsPlay = (e) => {
     }
   };
   const map3 = () => {
+    renderMap3();
+    moving();
     hideInstruction2();
     showInstruction3();
-    moving();
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.beginPath();
-    context.drawImage(girl, charX, charY, charWidth, charHeight);
-    context.fillStyle = "#0095DD";
-    context.fill();
-    context.closePath();
+    if (
+      charX + charWidth >= 120 &&
+      charX <= 170 &&
+      charY + charHeight >= 300 &&
+      charY <= 350
+    ) {
+      clearInterval(loadMap);
+      loadMap = setInterval(map4);
+    }
+  };
+
+  const map4 = () => {
+    hideInstruction1();
+    hideInstruction2();
+    hideInstruction3();
+    showInstruction4();
+    renderMap4();
   };
   let loadMap = setInterval(map1);
 };
@@ -318,7 +409,6 @@ bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);
 br.addEventListener("touchend", stop);
 
-//Render 3rd Map
-// Add winning statement
-//Refractor
+//barrier conditions
 //Last minute detailing
+//add background music if possible

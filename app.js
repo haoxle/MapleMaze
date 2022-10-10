@@ -264,7 +264,7 @@ const map1BarrierCondition = () => {
   ) {
     return (go = go * -1);
   } else {
-    return (go = 1.1);
+    return (go = 0.5);
   }
 };
 
@@ -305,20 +305,44 @@ const map2BarrierCondition = () => {
   ) {
     return (go = go * -1);
   } else {
-    return (go = 1.1);
+    return (go = 0.5);
   }
 };
 
 const map3BarrierCondition = () => {
   if (
-    charX + charWidth >= 470 &&
-    charX <= 560 &&
-    charY + charHeight >= 0 &&
-    charY <= 125
+    (charX + charWidth >= 0 &&
+      charX <= 20 &&
+      charY + charHeight >= 0 &&
+      charY <= 30) +
+    (charX + charWidth >= 150 &&
+      charX <= 350 &&
+      charY + charHeight >= 0 &&
+      charY <= 90) +
+    (charX + charWidth >= 100 &&
+      charX <= 130 &&
+      charY + charHeight >= 70 &&
+      charY <= 130) +
+    (charX + charWidth >= 0 &&
+      charX <= 100 &&
+      charY + charHeight >= 200 &&
+      charY <= 350) +
+    (charX + charWidth >= 180 &&
+      charX <= 400 &&
+      charY + charHeight >= 200 &&
+      charY <= 350) +
+    (charX + charWidth >= 200 &&
+      charX <= 210 &&
+      charY + charHeight >= 150 &&
+      charY <= 200) +
+    (charX + charWidth >= 410 &&
+      charX <= 470 &&
+      charY + charHeight >= 120 &&
+      charY <= 200)
   ) {
     return (go = go * -1);
   } else {
-    return (go = 1.1);
+    return (go = 0.5);
   }
 };
 
@@ -359,6 +383,7 @@ const letsPlay = (e) => {
   };
   const map3 = () => {
     renderMap3();
+    map3BarrierCondition();
     moving();
     hideInstruction2();
     showInstruction3();

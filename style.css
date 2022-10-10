@@ -462,7 +462,8 @@ body .game .game__canvas {
   align-items: center;
   justify-content: center;
   justify-self: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-image: url("./Images/map.png");
+  background-size: cover;
 }
 body button:hover,
 body button:active {

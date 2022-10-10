@@ -9,6 +9,8 @@ const instdiv = document.querySelector(".game__info");
 const inst1div = document.querySelector(".inst1div");
 const inst2div = document.querySelector(".inst2div");
 const inst3div = document.querySelector(".inst3div");
+const inst4div = document.querySelector(".inst4div");
+
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
 let rightPress = false;
@@ -86,34 +88,22 @@ const moving = () => {
 document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
 
-const hideInstruction = () => {
-  instdiv.classList.add("hide");
-};
-const hideInstruction1 = () => {
-  inst1div.classList.add("hide");
-};
-const showInstruction1 = () => {
-  inst1div.classList.remove("hide");
-};
-const hideInstruction3 = () => {
-  inst3div.classList.add("hide");
-};
-const showInstruction3 = () => {
-  inst3div.classList.remove("hide");
-};
-const hideInstruction2 = () => {
-  inst2div.classList.add("hide");
-};
-const showInstruction2 = () => {
-  inst2div.classList.remove("hide");
-};
-const hideStartBtn = () => {
-  play.classList.add("hide");
-};
+const hideStartBtn = () => play.classList.add("hide");
+const hideInstruction = () => instdiv.classList.add("hide");
+const hideInstruction1 = () => inst1div.classList.add("hide");
+const showInstruction1 = () => inst1div.classList.remove("hide");
+const hideInstruction2 = () => inst2div.classList.add("hide");
+const showInstruction2 = () => inst2div.classList.remove("hide");
+const hideInstruction3 = () => inst3div.classList.add("hide");
+const showInstruction3 = () => inst3div.classList.remove("hide");
+const hideInstruction4 = () => inst4div.classList.add("hide");
+const showInstruction4 = () => inst4div.classList.remove("hide");
 
 hideInstruction1();
 hideInstruction3();
 hideInstruction2();
+hideInstruction4();
+
 const renderMap1 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
@@ -178,6 +168,7 @@ const renderMap2 = () => {
   context.drawImage(imgSword, 80, 10, 70, 70);
   context.closePath();
 };
+
 const map1BarrierCondition = () => {
   if (
     (charX + charWidth >= 0 &&
@@ -301,37 +292,22 @@ const letsPlay = (e) => {
   let loadMap = setInterval(map1);
 };
 
-const reload = (e) => {
-  location.reload();
-};
+const reload = (e) => location.reload();
 play.addEventListener("click", letsPlay);
 restart.addEventListener("click", reload);
 
-const goUp = (e) => {
-  upPress = true;
-  console.log("up ");
-};
-
-const goDown = (e) => {
-  downPress = true;
-  console.log("down");
-};
-const goLeft = (e) => {
-  leftPress = true;
-  console.log("left");
-};
-const goRight = (e) => {
-  rightPress = true;
-  console.log("right");
-};
+const goUp = (e) => (upPress = true);
+const goDown = (e) => (downPress = true);
+const goLeft = (e) => (leftPress = true);
+const goRight = (e) => (rightPress = true);
 
 const stop = (e) => {
   rightPress = false;
   downPress = false;
   leftPress = false;
   upPress = false;
-  console.log("Stop");
 };
+
 bu.addEventListener("touchstart", goUp);
 bd.addEventListener("touchstart", goDown);
 bl.addEventListener("touchstart", goLeft);
@@ -341,12 +317,6 @@ bu.addEventListener("touchend", stop);
 bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);
 br.addEventListener("touchend", stop);
-
-// const loopinst = (instruction1) => {
-//   instruction1.forEach((instruction) =>
-//     instruction.addEventListener("click", letsPlay)
-//   );
-// };
 
 //Render 3rd Map
 // Add winning statement

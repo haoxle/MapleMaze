@@ -496,6 +496,7 @@ body .game .game__canvas {
 body button:hover,
 body button:active {
   text-decoration: none;
+  color: black;
 }
 body .hide {
   display: none;

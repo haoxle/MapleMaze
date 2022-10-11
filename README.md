@@ -1,37 +1,13 @@
 # MapleEscape
 
-I have created a fantasy themed maze game.
+**Project Summary**
+I have created a fantasy themed maze game with a little twist. This game is made to make you angry. The character will be against obstacles that causes the character to stop moving, if the characters hit the wall which can be invisible, the will stop and the game has to be restarted.
 I have based the characters and style on an old but fun mmorpg called maplestory.
-The game is a maze where the character has to collect weapons to win.
+The winning condition is to collect all the weapons.
 
-This project i have used canvas and based the moving sprite using simple math techniques i.e coordinate manipulation to allow the character to move.
-
-const moving = () => {
-  if (rightPress) {
-    charX += go;
-    if (charX + charWidth > canvas.width) {
-      charX = canvas.width - charWidth;
-    }
-  } else if (leftPress) {
-    charX -= go;
-    if (charX < 0) {
-      charX = 0;
-    }
-  } else if (upPress) {
-    charY -= go;
-    if (charY < 0) {
-      charY = 0;
-    }
-  } else if (downPress) {
-    charY += go;
-    if (charY + charHeight > canvas.height) {
-      charY = canvas.height - charWidth;
-    }
-  }
-};
-
-
-The game centers around the above function where it takes the coordinates of the character and updates it using the grid width and height of the map.
-
-
+**Functions**
+Within this project I have used canvas for my animation to be displayed on.
+A lot of mathematics functions are implemented to impose barriers or stop conditions for the character.
+The game centers around functions where it takes the coordinates of the character and updates it using the grid width and height of the map.
 setInterval is used to support the canvas as it continuosly runs to updates the animation allowing us to see the moving sprite.
+

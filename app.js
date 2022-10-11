@@ -6,10 +6,13 @@ const restart = document.querySelector(".game__restart");
 const play = document.querySelector(".game__start");
 const instruction1 = document.querySelectorAll(".game__info");
 const instdiv = document.querySelector(".game__info");
-const inst1div = document.querySelector(".inst1div");
-const inst2div = document.querySelector(".inst2div");
-const inst3div = document.querySelector(".inst3div");
-const inst4div = document.querySelector(".inst4div");
+
+const inst = [
+  "<div class='inst1div'><img class='inst1img' src='./Images/MS4.png' alt='character' /><div><h1>Level One</h1><p class='inst1p'>Hint: Only go one direction at a time, if you get stuck go the opposite direction. Go too far into the monster, it will grab onto you, and you will be stuck there. If that happens just press the reset button to try again.</p></div></div>",
+  "<div class='inst2div'><img class='inst2img' src='./Images/MS2.png' alt='character' /><div class='wording'><h1 class='game__info2'>Level Two (Hard)</h1><p class='inst2p'>The more weapons you collect the more vicious these monsters become! You will start to notice you cannot move pass empty spaces, that's  because the monsters have an invisible barrier that can pull you in.</p></div></div>",
+  "<div class='inst3div'><img class='inst3img' src='./Images/MS3.png' alt='character' /><div><h1>Level Three (Very Hard)</h1><p class='inst3p'>This is the final stage, I am surprised you made it this far! Please be careful, the invisible barrier is extremely large, you will need to figure out how big the monsters barrier is.</p></div></div>",
+  "<div class='inst4div'><img class='inst4img' src='./Images/MS5.png' alt='character' /><div><h1>Complete</h1><p class='inst4p'>Thank you Adventurer for collecting all the weapons! Now onto the next quest.</p></div></div>",
+];
 
 const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext("2d");
@@ -109,20 +112,6 @@ document.addEventListener("keydown", keyClick, false);
 document.addEventListener("keyup", KeyRelease, false);
 
 const hideStartBtn = () => play.classList.add("hide");
-const hideInstruction = () => instdiv.classList.add("hide");
-const hideInstruction1 = () => inst1div.classList.add("hide");
-const showInstruction1 = () => inst1div.classList.remove("hide");
-const hideInstruction2 = () => inst2div.classList.add("hide");
-const showInstruction2 = () => inst2div.classList.remove("hide");
-const hideInstruction3 = () => inst3div.classList.add("hide");
-const showInstruction3 = () => inst3div.classList.remove("hide");
-const hideInstruction4 = () => inst4div.classList.add("hide");
-const showInstruction4 = () => inst4div.classList.remove("hide");
-
-hideInstruction1();
-hideInstruction3();
-hideInstruction2();
-hideInstruction4();
 
 const renderMap1 = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -347,14 +336,24 @@ const map3BarrierCondition = () => {
 };
 
 const letsPlay = (e) => {
-  hideStartBtn();
-  hideInstruction();
+  const reset = () => {
+    clearInterval(loadMap);
+    loadMap = setInterval(map1);
+    charY = 80;
+    charX = 0;
+  };
+  restart.addEventListener("click", reset);
 
+  hideStartBtn();
+  let instructions = instdiv;
+  instructions.classList.add("hide");
+  const instructionDiv = document.createElement("div");
+  document.querySelector("main").append(instructionDiv);
   const map1 = () => {
     renderMap1();
     map1BarrierCondition();
     moving();
-    showInstruction1();
+    instructionDiv.innerHTML = inst[0];
     if (
       charX + charWidth >= 480 &&
       charX <= 560 &&
@@ -369,8 +368,7 @@ const letsPlay = (e) => {
     map2BarrierCondition();
     renderMap2();
     moving();
-    hideInstruction1();
-    showInstruction2();
+    instructionDiv.innerHTML = inst[1];
     if (
       charX + charWidth >= 90 &&
       charX <= 130 &&
@@ -385,8 +383,7 @@ const letsPlay = (e) => {
     renderMap3();
     map3BarrierCondition();
     moving();
-    hideInstruction2();
-    showInstruction3();
+    instructionDiv.innerHTML = inst[2];
     if (
       charX + charWidth >= 120 &&
       charX <= 170 &&
@@ -399,18 +396,13 @@ const letsPlay = (e) => {
   };
 
   const map4 = () => {
-    hideInstruction1();
-    hideInstruction2();
-    hideInstruction3();
-    showInstruction4();
+    instructionDiv.innerHTML = inst[3];
     renderMap4();
   };
   let loadMap = setInterval(map1);
 };
 
-const reload = (e) => location.reload();
 play.addEventListener("click", letsPlay);
-restart.addEventListener("click", reload);
 
 const goUp = (e) => (upPress = true);
 const goDown = (e) => (downPress = true);
@@ -428,7 +420,6 @@ bu.addEventListener("touchstart", goUp);
 bd.addEventListener("touchstart", goDown);
 bl.addEventListener("touchstart", goLeft);
 br.addEventListener("touchstart", goRight);
-
 bu.addEventListener("touchend", stop);
 bd.addEventListener("touchend", stop);
 bl.addEventListener("touchend", stop);

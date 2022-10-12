@@ -1,7 +1,7 @@
 # MapleMaze
 
 **Project Summary**
-I have created a fantasy themed maze game with a little twist. This game is made to make you angry. The character will be against obstacles that causes the character to stop moving, if the characters hit the wall which can be invisible, the will stop and the game has to be restarted.
+I have created a fantasy themed maze game with a little twist. This game is made to make you angry. The character will navigate past obstacles, if the characters hit the wall which can be invisible, the game will stop and the game has to be restarted.
 I have based the characters and style on an old but fun mmorpg called maplestory.
 The winning condition is to collect all the weapons.
 
